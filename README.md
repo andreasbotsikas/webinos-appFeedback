@@ -1,4 +1,4 @@
 webinos-appFeedback
 ===================
 
-An application feedback gathering application
+A fedback gathering application for webinos applications
