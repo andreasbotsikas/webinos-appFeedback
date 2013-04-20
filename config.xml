@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<widget xmlns="http://www.w3.org/ns/widgets" id="http://webinos.org/abot/webinosAppsFeedback" version="0.8">
+  <name short="webinos Apps Feedback">webinos Apps Feedback</name>
+  <description>Collects feedback on the webinos applications and save the results in a file or post them to a remote server.</description>
+  <content src="index.html" />
+  <icon src="icon.png" />
+  <author email="abot@epu.ntua.gr">Andreas Botsikas</author>
+  <feature name="http://webinos.org/api/file" required = "false"/> 
+</widget>
+

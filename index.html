@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <title>MWC Feedback on webinos demos</title>
+        <link rel="stylesheet" href="jQuery/jquery.mobile-1.2.0.min.css" />
+        <script src="jQuery/jquery.js"></script>
+        <script src="jQuery/jquery.mobile-1.2.0.min.js"></script>
+		<link rel="stylesheet" href="starRating/jquery.rating.css" />
+        <script src="starRating/jquery.rating.js"></script>
+		<style>
+            @media screen and (max-width: 330px) {
+                .question-values {
+                    zoom: 0.6;
+                }
+                .ui-header .ui-title {
+                    margin-left: 0;
+                }
+            }
+
+            .ui-body-c, .ui-overlay-c {
+			background-image: none;
+		}
+		h3 {
+			 font-style: italic;
+		}
+		.question-label {
+			font-size: 24px;
+			font-weight: bold;
+			margin-top: 10px;
+		}
+		.question-values{
+			margin-top: 10px;
+			margin-left: 30px;
+		}
+		#cmdSubmit{
+			margin-top: 30px;
+		}
+            #ResultsDiv{
+                clear:both;
+            }
+		</style>
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <!-- Questions -->
+        <div data-role="page" id="Questions">
+            <div data-theme="a" data-role="header">
+                <a data-role="button" id="cmdResetForm2" data-icon="refresh" data-iconpos="left" class="ui-btn-left">
+                    Reset
+                </a>
+                <a data-role="button" href="#PickApp" data-icon="gear" data-iconpos="left" class="ui-btn-right">
+                    Select app
+                </a>
+                <h3 id="applicationName">
+                    Demo app
+                </h3>
+            </div>
+            <div data-role="content">
+				<h3 style="font-weight: normal;margin-top:0;margin-bottom: 0">Please help us drive the development of our demos by participating in the following questionnaire</h3>
+				<div class="question-label">Presented scenario catches your interest</div>
+				<div class="question-values">
+						<input name="star1" type="radio" value="0" class="star"/>
+					    <input name="star1" type="radio" value="1" class="star"/>
+					    <input name="star1" type="radio" value="2" class="star"/>
+					    <input name="star1" type="radio" value="3" class="star"/>
+					    <input name="star1" type="radio" value="4" class="star"/>
+				</div>
+               <div class="question-label">Application solves a real problem; adds value</div>
+			   <div class="question-values">
+						<input name="star2" type="radio" value="0" class="star"/>
+					    <input name="star2" type="radio" value="1" class="star"/>
+					    <input name="star2" type="radio" value="2" class="star"/>
+					    <input name="star2" type="radio" value="3" class="star"/>
+					    <input name="star2" type="radio" value="4" class="star"/>
+				</div>
+				<div class="question-label">Was it clear why pick this app against other competitors?</div>
+			    <div class="question-values">
+						<input name="star3" type="radio" value="0" class="star"/>
+					    <input name="star3" type="radio" value="1" class="star"/>
+					    <input name="star3" type="radio" value="2" class="star"/>
+					    <input name="star3" type="radio" value="3" class="star"/>
+					    <input name="star3" type="radio" value="4" class="star"/>
+				</div>
+				<div class="question-label">Demonstration depicted the added value of the webinos platform</div>
+			    <div class="question-values">
+						<input name="star4" type="radio" value="0" class="star"/>
+					    <input name="star4" type="radio" value="1" class="star"/>
+					    <input name="star4" type="radio" value="2" class="star"/>
+					    <input name="star4" type="radio" value="3" class="star"/>
+					    <input name="star4" type="radio" value="4" class="star"/>
+				</div>
+				<div class="question-label">Were you convinced to try the webinos platform?</div>
+			    <div class="question-values">
+						<input name="star5" type="radio" value="0" class="star"/>
+					    <input name="star5" type="radio" value="1" class="star"/>
+					    <input name="star5" type="radio" value="2" class="star"/>
+					    <input name="star5" type="radio" value="3" class="star"/>
+					    <input name="star5" type="radio" value="4" class="star"/>
+				</div>
+                <a data-role="button" id="cmdSubmit" href="#ThankYou">
+                    Submit your votes
+                </a>
+                <div class="question-label">(Optional) leave any feedback you want us to listen to:</div>
+                <textarea  id="feedback" placeholder=""></textarea>
+				<br style="clear:both"/>
+            </div>
+        </div>
+		<!-- PickApp -->
+        <div data-role="page" id="PickApp">
+            <div data-theme="a" data-role="header">
+                <a data-role="button" href="#Questions" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left">
+                    Back
+                </a>
+                <h3>
+                    Select a webinos app
+                </h3>
+                <a data-role="button" href="#ShowResults" data-icon="gear" data-iconpos="left" class="ui-btn-right">
+                    Results
+                </a>
+            </div>
+            <div data-role="content">
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" id="ApplicationSelection" data-type="vertical">
+                        <legend>
+                            Select a webinos app:
+                        </legend>
+                        <input id="rd1" name="application" value="1" type="radio" /><label for="rd1">webinos Connected Car</label>
+						<input id="rd2" name="application" value="2" type="radio" /><label for="rd2">webinos Connected TV</label>
+						<input id="rd3" name="application" value="3" type="radio" /><label for="rd3">webinos Connected Sensors</label>
+						<input id="rd4" name="application" value="4" type="radio" /><label for="rd4">webinos Party Player</label>
+						<input id="rd5" name="application" value="5" type="radio" /><label for="rd5">webinos Cross Device Payment</label>
+						<input id="rd6" name="application" value="6" type="radio" /><label for="rd6">webinos Shopping and NFC</label>
+						<input id="rd7" name="application" value="7" type="radio" /><label for="rd7">webinos Creative Notes</label>
+						<input id="rd8" name="application" value="8" type="radio" /><label for="rd8">webinos Emergency Warning</label>
+						<input id="rd9" name="application" value="9" type="radio" /><label for="rd9">webinos File Share</label>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+		<!-- Thank you -->
+		<div data-role="page" id="ThankYou">
+            <div data-theme="a" data-role="header">
+                <a data-role="button" href="#Questions" data-icon="back" data-iconpos="left" id="cmdResetForm" class="ui-btn-left">
+                    Back
+                </a>
+                <h3>
+                    Thank you
+                </h3>
+            </div>
+            <div data-role="content">
+                <h2>
+                    Thank you for participating
+                </h2>
+				<p>Your input will help us drive the webinos platform development and the associated demonstrating applications</p>
+				<img src="webinos_logo.png" alt="webinos"/>
+                <a data-role="button" href="#Questions" data-icon="back" data-iconpos="left" id="cmdResetForm1">
+                    Back to the questionnaire
+                </a>
+            </div>
+        </div>
+        <!-- ShowResults -->
+        <div data-role="page" id="ShowResults">
+            <div data-theme="a" data-role="header">
+                <a data-role="button" href="#Questions" data-icon="back" data-iconpos="left" class="ui-btn-left">
+                    Back
+                </a>
+                <h3>
+                    Results
+                </h3>
+                <a data-role="button" id="cmdPlanB" data-icon="alert" data-iconpos="left" class="ui-btn-right">
+                    Backup plan
+                </a>
+            </div>
+            <div data-role="content">
+                <h2>
+                    Here are the answers
+                </h2>
+                <a data-role="button" data-icon="check" data-iconpos="left" id="cmdSaveToDisk">
+                    Save to disk
+                </a>
+                <div id="ApiLog"></div><br/>
+                <ul id="ResultsDiv"></ul>
+            </div>
+        </div>
+    </body>
+</html>
